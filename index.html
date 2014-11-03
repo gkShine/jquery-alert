@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>Jquery Alert By LS</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<form class="form-horizontal" role="form" style="width: 600px;margin: auto;">
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <h1>Jquery Alert By LS</h1>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="isOnly" class="col-sm-2 control-label">存在多个</label>
+
+        <div class="col-sm-10">
+            <div class="checkbox">
+                <input id="isOnly" type="checkbox" checked="checked" style="margin-left: 0"/>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="autoClose" class="col-sm-2 control-label">自动关闭</label>
+
+        <div class="col-sm-10">
+            <div class="checkbox">
+                <input id="autoClose" type="checkbox" checked="checked" style="margin-left: 0"/>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="withTime" class="col-sm-2 control-label">倒计时</label>
+
+        <div class="col-sm-10">
+            <div class="checkbox">
+                <input id="withTime" type="checkbox" style="margin-left: 0"/>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="withTime" class="col-sm-2 control-label">关闭时间</label>
+
+        <div class="col-sm-10">
+            <input id="time" class="form-control" value="3" style="width: 50px;display: inline-block;">秒
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="withTime" class="col-sm-2 control-label">提示类型</label>
+
+        <div class="col-sm-10">
+            <select id="type" class="form-control" style="width: 100px">
+                <option value="success">成功</option>
+                <option value="info">提示</option>
+                <option value="warning">警告</option>
+                <option value="danger">错误</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" data-position="top-left">左上角</button>
+                <button type="button" class="btn btn-default" data-position="top-right">右上角</button>
+                <button type="button" class="btn btn-default" data-position="center">居中</button>
+                <button type="button" class="btn btn-default" data-position="bottom-left">左下角</button>
+                <button type="button" class="btn btn-default" data-position="bottom-right">右下角</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script src="alert.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('button').on('click', function () {
+            $.alert('Hello World!', {
+                title: 'Javascript',
+                closeTime: $('#time').val() * 1000,
+                autoClose: $('#autoClose').is(':checked'),
+                position: [$(this).data('position')],
+                withTime: $('#withTime').is(':checked'),
+                type: $('#type').val(),
+                isOnly: !$('#isOnly').is(':checked')
+            });
+        });
+    })
+</script>
+</body>
+</html>
