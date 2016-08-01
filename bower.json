@@ -1,7 +1,7 @@
 {
     "name": "jquery-alert",
     "main": "alert.js",
-    "version": "1.0",
+    "version": "1.1",
     "authors": [
         "林盛 <linren_888@126.com>"
     ],
