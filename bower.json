@@ -1,5 +1,5 @@
 {
-    "name": "jquery alert",
+    "name": "jquery-alert",
     "main": "alert.js",
     "version": "1.0",
     "authors": [
